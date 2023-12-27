@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 
 public class Klijent implements Runnable {
@@ -55,7 +56,7 @@ public class Klijent implements Runnable {
 				
 				input = serverInput.readLine();
 				
-				if (input.equals("***izlaz***")) {
+				if (input.equals("***izlaz***")) {					
 					soketZaKomunikaciju.close();
 					return;
 				}
@@ -64,7 +65,9 @@ public class Klijent implements Runnable {
 				
 			}
 			
-		} catch (UnknownHostException e) {
+		} catch (SocketException e) {
+			System.out.println("Error: server is down!");
+		}catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
