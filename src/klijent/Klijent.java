@@ -17,10 +17,8 @@ public class Klijent implements Runnable {
 		
 	@Override
 	public void run() {
-		
-		BufferedReader inputTastatura = new BufferedReader(new InputStreamReader(System.in));
-		
-		try {
+				
+		try (BufferedReader inputTastatura = new BufferedReader(new InputStreamReader(System.in))) {
 			
 			String input;
 			
