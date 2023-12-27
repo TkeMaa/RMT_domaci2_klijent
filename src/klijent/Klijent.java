@@ -1,6 +1,7 @@
 package klijent;
 
 import java.io.BufferedReader;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
@@ -63,9 +64,11 @@ public class Klijent implements Runnable {
 				
 			}
 			
-		} catch (SocketException e) {
+		} catch (EOFException e) {
+			
+		}catch (SocketException e) {
 			System.out.println("Error: server is down!");
-		}catch (UnknownHostException e) {
+		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
