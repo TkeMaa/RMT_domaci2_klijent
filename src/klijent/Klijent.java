@@ -55,7 +55,7 @@ public class Klijent implements Runnable {
 				
 				input = serverInput.readLine();
 				
-				if (input.equals("***izlaz***")) {					
+				if (input.equals("*** izlaz ***")) {					
 					soketZaKomunikaciju.close();
 					return;
 				}
